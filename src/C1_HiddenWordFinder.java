@@ -6,18 +6,22 @@
  */
 
 public class C1_HiddenWordFinder {
+    public int y =0;
+    public int x =0;
+    public int z =0;
+
 
     public static void main(String[] args) {
         C1_HiddenWordFinder c = new C1_HiddenWordFinder();
     }
 
     public C1_HiddenWordFinder() {
-        String sentence = "This is a test startHelloend string.";
+        String sentence = "This startisend a test startHelloend string.";
         findHiddenWord(sentence);  // Output: Hidden word: Hello
     }
 
     public void findHiddenWord(String sentence) {
-        /* TODO: your code goes here */
+        System.out.println(sentence.substring(sentence.indexOf("start")+5,sentence.indexOf("end")));
 
     }
 

@@ -11,6 +11,9 @@ import java.util.Scanner;
 
 
 public class C2_HiddenWordHardMode {
+    public int y =0;
+    public int x =0;
+    public int z =0;
 
     public static void main(String[] args) {
         C2_HiddenWordHardMode c = new C2_HiddenWordHardMode();
@@ -28,8 +31,20 @@ public class C2_HiddenWordHardMode {
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                /* TODO: your code goes here */
+                for(int i=0; i<line.length(); i++) {
+                    if(line.charAt(i)=='*'){
+                        y=i;
+                        z=1;
+                    }
+                    if(line.charAt(i)=='~'&& z==1){
+                        x=i;
+                        z=0;
+                        System.out.println(line.substring(y, x));
+                    }else if(z==1&&i==line.length()-1){
+                        System.out.println(line.substring(y));
+                    }
 
+                }
             }
             scanner.close();
         } catch (FileNotFoundException e) {
