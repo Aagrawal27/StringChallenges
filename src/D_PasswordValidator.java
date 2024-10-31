@@ -1,3 +1,5 @@
+
+
 /***
  * Problem: You are creating a password validation system.
  * A valid password must meet the following requirements:
@@ -10,6 +12,9 @@
  */
 
 public class D_PasswordValidator {
+public boolean a = false;
+public boolean b = false;
+public boolean c = false;
 
     public static void main(String[] args) {
         D_PasswordValidator d = new D_PasswordValidator();
@@ -21,9 +26,26 @@ public class D_PasswordValidator {
     }
 
     public boolean isValidPassword(String password) {
-        /* TODO: your code goes here */
+        for(int i=0;i<password.length();i++){
+            char n = password.charAt(i);
+            if(Character.isUpperCase(n)==true){
+                a=true;
+            }
+            if(Character.isDigit(n)==true){
+                b=true;
+            }
 
-        return true; // this is a temporary return to avoid errors
+        }
+        if(password.contains("password")==false && password.contains("Password")==false){
+            c=true;
+        }
+        if(a&&b&&c){
+            return true;
+        }else{
+            return false;
+        }
+
+        // this is a temporary return to avoid errors
     }
 
 }
